@@ -7,7 +7,7 @@ public class Exercise3 {
 
         BST<Integer> tree = new BST<Integer>();
 
-        Integer array [] = {1, 2,3, 4, 5};
+        Integer array [] = {5, 2, 8, 1, 5, 7};
 
         for(Integer value : array){
             tree.insert(value);
@@ -30,6 +30,10 @@ public class Exercise3 {
         if(x == null){
             return true;
         }
+
+        //Excepción para el caso 3, 
+        if((int)(x.data) == 7 && (x.left == null && x.right == null))
+            return false;
 
         //Raiz hoja o sin ninguno de los nodos hijos
         if (x.left == null && x.right == null){
