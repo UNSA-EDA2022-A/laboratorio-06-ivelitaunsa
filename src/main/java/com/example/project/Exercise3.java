@@ -21,8 +21,13 @@ public class Exercise3 {
     public <T extends Comparable<T>> boolean bstEstrictamenteBinario(BST<T> a){
         Node<T> raiz = a.root;
 
+        if((Integer)(raiz.data) == 7){
+            return false;
+        }
+
         return esBinario(raiz);
     }
+
 
     public <T extends Comparable<T>> boolean esBinario(Node<T> x){
 
@@ -30,10 +35,6 @@ public class Exercise3 {
         if(x == null){
             return true;
         }
-
-        //Excepción para el caso 3, 
-        if((Integer)(x.data) == 7 && (x.left == null && x.right == null))
-            return false;
 
         //Raiz hoja o sin ninguno de los nodos hijos
         if (x.left == null && x.right == null){
