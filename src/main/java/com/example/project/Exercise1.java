@@ -21,7 +21,20 @@ public class Exercise1 {
 
 
     public <T extends Comparable<T>> boolean bstSimilares(BST<T> a1, BST<T> a2){
+        Node<T> x = a1.root;
+        Node<T> y = a2.root;
 
-        return false;
+        return isIdentical(x, y);
+    }
+
+    public <T extends Comparable<T>> boolean isIdentical(Node<T> x, Node<T> y){
+
+        //Si los árboles están vacios
+        if(x==null && y==null) {
+            return true;
+        }
+
+        //Si los arboles no están vacios, recurren a los nodes derechos e izquierdos
+        return (x != null && y != null) && isIdentical(x.left, y.left) && isIdentical(x.right, y.right);
     }
 }
