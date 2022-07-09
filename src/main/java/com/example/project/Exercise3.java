@@ -19,7 +19,29 @@ public class Exercise3 {
 
 
     public <T extends Comparable<T>> boolean bstEstrictamenteBinario(BST<T> a){
+        Node<T> raiz = a.root;
 
+        return esBinario(raiz);
+    }
+
+    public <T extends Comparable<T>> boolean esBinario(Node<T> x){
+
+        //Arbol vacío
+        if(x == null){
+            return true;
+        }
+
+        //Raiz hoja o sin ninguno de los nodos hijos
+        if (x.left == null && x.right == null){
+            return true;
+        }
+
+        //Si el nodo tiene ambos elementos
+        //NOTA: Estrictamente ambos elementos deben existir por eso se comprueban varias veces
+        if(x.left != null && x.right != null)
+            return (esBinario(x.left) && esBinario(x.right));
+
+        //Ninguna condicion se cumple
         return false;
     }
 }
